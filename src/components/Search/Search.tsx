@@ -14,9 +14,7 @@ const Search = ({label, type, onChange}: SearchProps) => {
         <TextField
           label={label}
           onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-            console.log('e::', typeof e.target.value)
             onChange(e.target.value)}}
-          
           type={type}
           margin="dense"
           variant="standard"

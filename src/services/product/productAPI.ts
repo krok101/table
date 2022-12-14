@@ -3,7 +3,7 @@ import Product from "../../Types/product";
 const data1: Product[] = [
   {
     id: '0',
-    status: 'active',
+    status: 'archive',
     sum: 10,
     qty: 5,
     volume: 10,
@@ -23,7 +23,7 @@ const data1: Product[] = [
   },
   {
     id: '2',
-    status: 'active',
+    status: 'archive',
     sum: 100,
     qty: 5,
     volume: 10,
@@ -47,7 +47,7 @@ const data1: Product[] = [
 const data2: Product[] = [
   {
     id: '0',
-    status: 'active',
+    status: 'archive',
     sum: 100,
     qty: 7,
     volume: 10,

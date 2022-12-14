@@ -40,13 +40,13 @@ const ProductsTable: FC<ProductsTableProps> = ({products, selectedProduct, setSe
                 indeterminate={selectedProduct.length > 0 && selectedProduct.length !== products.length}
               />
             </TableCell>
-            <TableCell align="right">Status</TableCell>
-            <TableCell align="right">Sum</TableCell>
-            <TableCell align="right">Qty</TableCell>
-            <TableCell align="right">Volume</TableCell>
-            <TableCell align="right">Name</TableCell>
-            <TableCell align="right">Delivery date</TableCell>
-            <TableCell align="right">Currency</TableCell>
+            <TableCell align="right">Статус</TableCell>
+            <TableCell align="right">Сумма</TableCell>
+            <TableCell align="right">Количество</TableCell>
+            <TableCell align="right">Объем</TableCell>
+            <TableCell align="right">Название</TableCell>
+            <TableCell align="right">Дата доставки</TableCell>
+            <TableCell align="right">Валюта</TableCell>
             <TableCell align="right">Всего</TableCell>
           </TableRow>
         </TableHead>

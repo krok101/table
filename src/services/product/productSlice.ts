@@ -1,5 +1,4 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import { RootState } from '../../store';
 import Product from '../../Types/product';
 import { fetchProduct1, fetchProduct2 } from './productAPI';
 
@@ -40,5 +39,4 @@ export const counterSlice = createSlice({
   },
 });
 
-export const selectProducts = (state: RootState) => state.product.products;
 export default counterSlice.reducer;

@@ -12,12 +12,13 @@ const Search = ({label, type, onChange}: SearchProps) => {
       <Box sx={{ display: 'flex', alignItems: 'flex-end' }}>
         <SearchIcon sx={{ color: 'action.active', mr: 1, my: 0.5 }} />
         <TextField
-          label={label}
+          label={type !== 'date' ? label : ''}
           onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
             onChange(e.target.value)}}
           type={type}
           margin="dense"
           variant="standard"
+          helperText={type === 'date' ? label : ''}
         />
       </Box>
   )

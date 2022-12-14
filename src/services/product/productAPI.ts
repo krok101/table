@@ -8,7 +8,7 @@ const data1: Product[] = [
     qty: 5,
     volume: 10,
     name: 'some_nome_11',
-    delivery_date: '20.12.22',
+    delivery_date: '2022.12.22',
     currency: '$'
   },
   {
@@ -18,8 +18,8 @@ const data1: Product[] = [
     qty: 5,
     volume: 10,
     name: 'some_nome_1',
-    delivery_date: '20.12.22',
-    currency: '$'
+    delivery_date: '2022.12.21',
+    currency: '₽'
   },
   {
     id: '2',
@@ -28,8 +28,8 @@ const data1: Product[] = [
     qty: 5,
     volume: 10,
     name: 'some_nom3e_1',
-    delivery_date: '20.12.22',
-    currency: '$'
+    delivery_date: '2022.12.21',
+    currency: '₽'
   },
   {
     id: '3',
@@ -38,7 +38,7 @@ const data1: Product[] = [
     qty: 7,
     volume: 10,
     name: 'some_nome_1',
-    delivery_date: '20.12.22',
+    delivery_date: '2022.12.23',
     currency: '$'
   },
 ]
@@ -52,7 +52,7 @@ const data2: Product[] = [
     qty: 7,
     volume: 10,
     name: 'some_nome_2_data2',
-    delivery_date: '20.12.22',
+    delivery_date: '2022.12.21',
     currency: '$'
   },
   {
@@ -62,7 +62,7 @@ const data2: Product[] = [
     qty: 3,
     volume: 10,
     name: 'some_nome_2_data2',
-    delivery_date: '20.12.22',
+    delivery_date: '2022.12.08',
     currency: '$'
   },
   {
@@ -72,7 +72,7 @@ const data2: Product[] = [
     qty: 3,
     volume: 10,
     name: 'some_nome_2_data2',
-    delivery_date: '20.12.22',
+    delivery_date: '2022.12.22',
     currency: '$'
   },
   {
@@ -82,7 +82,7 @@ const data2: Product[] = [
     qty: 5,
     volume: 10,
     name: 'some_nome_2_data2',
-    delivery_date: '20.12.22',
+    delivery_date: '2022.12.22',
     currency: '$'
   },
   {
@@ -92,7 +92,7 @@ const data2: Product[] = [
     qty: 4,
     volume: 10,
     name: 'some_nome_2_data2',
-    delivery_date: '20.12.22',
+    delivery_date: '2022.12.22',
     currency: '$'
   },
 ]

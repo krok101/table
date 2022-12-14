@@ -1,32 +1,25 @@
-import { Container, Stack, Box } from '@mui/material';
+import { Container, Box } from '@mui/material';
 import { useEffect, useState } from 'react'
-import { Search, SelectList } from '../../components';
 import { useAppDispatch, useAppSelector } from "../../hooks/redux";
 import { fetchProduct } from "../../services/product/productSlice";
-import Product, { Status } from '../../Types/product';
+import Product from '../../Types/product';
+import Filter, { IFilter } from './components/Filter/Filter';
 import ModalAnnul from './components/ModalAnnul/ModalAnnul';
 import ProductsTable from './components/ProductsTable';
-
-interface Filter {
-  name: string,
-  sum: number | null,
-  qtu: number | null,
-  volume: number | null,
-  total: number | null,
-  status: string,
-}
 
 export default function DataTable() {
   const { products, status } = useAppSelector(state => state.product)
   const dispatch = useAppDispatch()
   const [selectedProduct, setSelectedProduct] = useState<Product[]>([])
-  const [filter, setFilter] = useState<Filter>({
+  const [filter, setFilter] = useState<IFilter>({
     name: '',
     sum: null,
     qtu: null,
     volume: null,
     total: null,
     status: '',
+    currency: '',
+    deliveryDate: '',
   });
 
   useEffect(() => {
@@ -47,34 +40,16 @@ export default function DataTable() {
       result = result.filter(product => product.sum * product.qty === filter.total)
     if (filter.status !== '')
       result = result.filter(product => product.status === filter.status)
+    if (filter.currency !== '')
+      result = result.filter(product => product.currency === filter.currency)
+    if (filter.deliveryDate !== '')
+      result = result.filter(product => new Date(product.delivery_date).toLocaleDateString() === new Date(filter.deliveryDate).toLocaleDateString())
     return result
-  }
-
-  const handleChangeSearch = (field: keyof Filter, value: string) => {
-    switch(field) {
-      case 'name': return setFilter({ ...filter, name: value })
-      case 'qtu': return setFilter({ ...filter, qtu: value === '' ? null : Number(value) })
-      case 'sum': return setFilter({ ...filter, sum: value === '' ? null : Number(value) })
-      case 'volume': return setFilter({ ...filter, volume: value === '' ? null : Number(value) })
-      case 'total': return setFilter({ ...filter, total: value === '' ? null : Number(value) })
-    }
-  }
-
-  const handleChangeSearchStatus = (value: string) => {
-    setFilter({ ...filter, status: value })
   }
 
   return (
     <Container maxWidth="lg">
-      <Stack direction='row' flexWrap='wrap'>
-        {/* <Search label='Статус' type="string"/> */}
-        <Search label='Название' type={'string'} onChange={(value) => handleChangeSearch('name', value)}/>
-        <Search label='Сумма' type={'number'} onChange={(value) => handleChangeSearch('sum', value)}/>
-        <Search label='Количество' type={'number'} onChange={(value) => handleChangeSearch('qtu', value)}/>
-        <Search label='Объем' type={'number'} onChange={(value) => handleChangeSearch('volume', value)}/>
-        <Search label='Всего' type={'number'} onChange={(value) => handleChangeSearch('total', value)}/>
-        <SelectList value={filter.status} onChange={handleChangeSearchStatus} options={[...new Set(products.map(el => el.status))]} label='статус' />
-      </Stack>
+      <Filter setFilter={setFilter} filter={filter} products={products}/>
       {status === 'loading' ? (
         <Box>Загрузка данных...</Box>
       ) : (

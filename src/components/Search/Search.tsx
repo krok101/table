@@ -4,13 +4,15 @@ import SearchIcon from '@mui/icons-material/Search';
 interface SearchProps {
   label: string,
   type: React.HTMLInputTypeAttribute | undefined
-  onChange: (arg: string) => void
+  onChange: (arg: string) => void,
+  width?: string,
+  className?: string,
 }
 
-const Search = ({label, type, onChange}: SearchProps) => {
+const Search = ({label, type, onChange, width, className}: SearchProps) => {
   return (
-      <Box sx={{ display: 'flex', alignItems: 'flex-end' }}>
-        <SearchIcon sx={{ color: 'action.active', mr: 1, my: 0.5 }} />
+      <Box sx={{ display: 'flex', alignItems: 'flex-end', width: width ?? 'auto'}} className={className ?? ''}>
+        {type !== 'date' && <SearchIcon sx={{ color: 'action.active', mr: 1, my: 0.5 }} />}
         <TextField
           label={type !== 'date' ? label : ''}
           onChange={(e: React.ChangeEvent<HTMLInputElement>) => {

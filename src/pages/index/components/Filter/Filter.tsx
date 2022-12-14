@@ -1,6 +1,7 @@
 import { Stack } from '@mui/material';
 import { Search, SelectList } from '../../../../components';
 import Product from '../../../../Types/product';
+import style from './style.module.css'
 
 export interface IFilter {
   name: string,
@@ -32,13 +33,13 @@ const Filter = ({setFilter, filter, products}: FilterProps) => {
   }
 
   return (
-    <Stack direction='row' flexWrap='wrap'>
-      <Search label='Название' type={'string'} onChange={(value) => handleChangeSearch('name', value)}/>
-      <Search label='Сумма' type={'number'} onChange={(value) => handleChangeSearch('sum', value)}/>
-      <Search label='Количество' type={'number'} onChange={(value) => handleChangeSearch('qtu', value)}/>
-      <Search label='Объем' type={'number'} onChange={(value) => handleChangeSearch('volume', value)}/>
-      <Search label='Всего' type={'number'} onChange={(value) => handleChangeSearch('total', value)}/>
-      <Search label='Дата доставки' type={'date'} onChange={(value) => handleChangeSearch('deliveryDate', value)}/>
+    <Stack direction='column' flexWrap='wrap' height={'160px'}>
+      <Search label='Название' width='250px' type={'string'} onChange={(value) => handleChangeSearch('name', value)}/>
+      <Search label='Дата доставки' className={style.date} width='250px' type={'date'} onChange={(value) => handleChangeSearch('deliveryDate', value)}/>
+      <Search label='Сумма' width='140px' type={'number'} onChange={(value) => handleChangeSearch('sum', value)}/>
+      <Search label='Количество' width='140px' type={'number'} onChange={(value) => handleChangeSearch('qtu', value)}/>
+      <Search label='Объем' width='140px' type={'number'} onChange={(value) => handleChangeSearch('volume', value)}/>
+      <Search label='Всего' width='140px' type={'number'} onChange={(value) => handleChangeSearch('total', value)}/>
       <SelectList 
         label='Статус'
         value={filter.status}

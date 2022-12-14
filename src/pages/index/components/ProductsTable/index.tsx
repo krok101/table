@@ -1,6 +1,6 @@
 import { FC } from 'react';
-import { TableCell, TableContainer, TableHead, Table, TableRow, TableBody, Checkbox, TableFooter } from "@mui/material"
-import Product from "../../../../Types/product"
+import { TableCell, TableContainer, TableHead, Table, TableRow, TableBody, Checkbox, TableFooter } from '@mui/material';
+import Product from '../../../../Types/product';
 
 interface ProductsTableProps {
   products: Product[],
@@ -10,23 +10,23 @@ interface ProductsTableProps {
 
 const ProductsTable: FC<ProductsTableProps> = ({products, selectedProduct, setSelectedProduct}) => {
   const handleChangeAll = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setSelectedProduct(event.target.checked ? products : [])
+    setSelectedProduct(event.target.checked ? products : []);
   };
 
   const handleChange = (product: Product) => {
     if (selectedProduct.includes(product)) {
-      setSelectedProduct(selectedProduct.filter(p => p !== product))
+      setSelectedProduct(selectedProduct.filter(p => p !== product));
     } else {
-      setSelectedProduct([...selectedProduct, product])
+      setSelectedProduct([...selectedProduct, product]);
     }
   };
 
   const getTotal = (product: Product): string => {
-    return product.sum * product.qty + product.currency
-  }
+    return product.sum * product.qty + product.currency;
+  };
 
-  const getSelectetQty = () => selectedProduct.reduce((result, product) => result += product.qty, 0)
-  const getSelectedValume = () => selectedProduct.reduce((result, product) => result += product.volume, 0)
+  const getSelectetQty = () => selectedProduct.reduce((result, product) => result += product.qty, 0);
+  const getSelectedValume = () => selectedProduct.reduce((result, product) => result += product.volume, 0);
 
   return (
     <TableContainer>
@@ -50,26 +50,26 @@ const ProductsTable: FC<ProductsTableProps> = ({products, selectedProduct, setSe
             <TableCell align="right">Всего</TableCell>
           </TableRow>
         </TableHead>
-          <TableBody>
-            {products.map((product, i) => (
-              <TableRow key={i}>
-                <TableCell align="center" sx={{ padding: '0' }}>
-                  <Checkbox
-                    onChange={() => handleChange(product)}
-                    checked={selectedProduct.includes(product)}
-                  />
-                </TableCell>
-                <TableCell align="center">{product.status}</TableCell>
-                <TableCell align="center">{product.sum}</TableCell>
-                <TableCell align="center">{product.qty}</TableCell>
-                <TableCell align="center">{product.volume}</TableCell>
-                <TableCell align="left">{product.name}</TableCell>
-                <TableCell align="center">{product.delivery_date}</TableCell>
-                <TableCell align="center">{product.currency}</TableCell>
-                <TableCell align="right">{getTotal(product)}</TableCell>
-              </TableRow>
-            ))}
-          </TableBody>
+        <TableBody>
+          {products.map((product, i) => (
+            <TableRow key={i}>
+              <TableCell align="center" sx={{ padding: '0' }}>
+                <Checkbox
+                  onChange={() => handleChange(product)}
+                  checked={selectedProduct.includes(product)}
+                />
+              </TableCell>
+              <TableCell align="center">{product.status}</TableCell>
+              <TableCell align="center">{product.sum}</TableCell>
+              <TableCell align="center">{product.qty}</TableCell>
+              <TableCell align="center">{product.volume}</TableCell>
+              <TableCell align="left">{product.name}</TableCell>
+              <TableCell align="center">{product.delivery_date}</TableCell>
+              <TableCell align="center">{product.currency}</TableCell>
+              <TableCell align="right">{getTotal(product)}</TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
         <TableFooter>
           <TableRow>
             <TableCell></TableCell>
@@ -85,7 +85,7 @@ const ProductsTable: FC<ProductsTableProps> = ({products, selectedProduct, setSe
         </TableFooter>
       </Table>
     </TableContainer>
-  )
-}
+  );
+};
 
-export default ProductsTable
+export default ProductsTable;

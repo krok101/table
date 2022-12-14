@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Button, Dialog,DialogTitle, DialogContent, DialogContentText, DialogActions, Box } from "@mui/material"
+import { Button, Dialog,DialogTitle, DialogContent, DialogContentText, DialogActions, Box } from '@mui/material';
 import Product from '../../../../Types/product';
 import { fetchAnnul } from '../../../../services/product/productAPI';
 
@@ -10,12 +10,12 @@ interface ModalAnnulProps {
 const ModalAnnul = ({products}: ModalAnnulProps) => {
   const [open, setOpen] = useState(false);
 
-  const handleClose = () => setOpen(false)
+  const handleClose = () => setOpen(false);
 
   const handleAgree = () => {
     fetchAnnul(products.map(product => product.id));
     handleClose();
-  }
+  };
 
   return (
     <>
@@ -44,7 +44,7 @@ const ModalAnnul = ({products}: ModalAnnulProps) => {
         </DialogActions>
       </Dialog>
     </>
-  )
-}
+  );
+};
 
-export default ModalAnnul
+export default ModalAnnul;

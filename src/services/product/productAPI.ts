@@ -1,4 +1,4 @@
-import Product from "../../Types/product";
+import Product from '../../Types/product';
 
 const data1: Product[] = [
   {
@@ -41,7 +41,7 @@ const data1: Product[] = [
     delivery_date: '2022.12.23',
     currency: '$'
   },
-]
+];
 
 
 const data2: Product[] = [
@@ -95,19 +95,29 @@ const data2: Product[] = [
     delivery_date: '2022.12.22',
     currency: '$'
   },
-]
+];
 
-
-// A mock function to mimic making an async request for data
-export function fetchProduct1() {
+export async function fetchProduct1() {
+  /*
+  const response = await fetch('/documents1', {
+    headers: { 'Content-Type': 'application/json' }
+  });
+  return await response.json();
+  */
   return new Promise<{ data: Product[] }>((resolve) =>
-    setTimeout(() => resolve({ data: data1 }), 500)
+    setTimeout(() => resolve({ data: data1 }), 400)
   );
 }
 
-export function fetchProduct2() {
+export async function fetchProduct2() {
+  /*
+  const response = await fetch('/documents2', {
+    headers: { 'Content-Type': 'application/json' }
+  });
+  return await response.json();
+  */
   return new Promise<{ data: Product[] }>((resolve) =>
-    setTimeout(() => resolve({ data: data2 }), 1500)
+    setTimeout(() => resolve({ data: data2 }), 900)
   );
 }
 
@@ -116,5 +126,5 @@ export const fetchAnnul = async (id: Array<String>) => {
     headers: { 'Content-Type': 'application/json' },
     method: 'POST',
     body: JSON.stringify({id}),
-  })
-}
+  });
+};

@@ -1,4 +1,4 @@
-export type Status = 'active'| 'archive'
+export type Status = 'active'| 'archive';
 
 export default interface Product {
   id: string,
@@ -8,5 +8,5 @@ export default interface Product {
   volume: number,
   name: string,
   delivery_date: string,
-  currency: string
-}
+  currency: string,
+};

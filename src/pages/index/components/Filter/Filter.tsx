@@ -1,7 +1,7 @@
 import { Stack } from '@mui/material';
 import { Search, SelectList } from '../../../../components';
 import Product from '../../../../Types/product';
-import style from './style.module.css'
+import style from './style.module.css';
 
 export interface IFilter {
   name: string,
@@ -23,14 +23,14 @@ interface FilterProps {
 const Filter = ({setFilter, filter, products}: FilterProps) => {
   const handleChangeSearch = (field: keyof IFilter, value: string) => {
     switch(field) {
-      case 'name': return setFilter({ ...filter, name: value })
-      case 'qtu': return setFilter({ ...filter, qtu: value === '' ? null : Number(value) })
-      case 'sum': return setFilter({ ...filter, sum: value === '' ? null : Number(value) })
-      case 'volume': return setFilter({ ...filter, volume: value === '' ? null : Number(value) })
-      case 'total': return setFilter({ ...filter, total: value === '' ? null : Number(value) })
-      case 'deliveryDate': return setFilter({ ...filter, deliveryDate: value})
+    case 'name': return setFilter({ ...filter, name: value });
+    case 'qtu': return setFilter({ ...filter, qtu: value === '' ? null : Number(value) });
+    case 'sum': return setFilter({ ...filter, sum: value === '' ? null : Number(value) });
+    case 'volume': return setFilter({ ...filter, volume: value === '' ? null : Number(value) });
+    case 'total': return setFilter({ ...filter, total: value === '' ? null : Number(value) });
+    case 'deliveryDate': return setFilter({ ...filter, deliveryDate: value});
     }
-  }
+  };
 
   return (
     <Stack direction='column' flexWrap='wrap' height={'160px'}>
@@ -53,7 +53,7 @@ const Filter = ({setFilter, filter, products}: FilterProps) => {
         options={[...new Set(products.map(el => el.currency))]}
       />
     </Stack>
-)
-}
+  );
+};
 
 export default Filter;

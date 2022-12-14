@@ -1,5 +1,5 @@
-import { FormControl, InputLabel, MenuItem } from "@mui/material"
-import Select, { SelectChangeEvent } from "@mui/material/Select";
+import { FormControl, InputLabel, MenuItem } from '@mui/material';
+import Select, { SelectChangeEvent } from '@mui/material/Select';
 
 interface SelectListProps {
   value: string,
@@ -20,7 +20,7 @@ const SelectList = ({value, options, onChange, label, width}: SelectListProps) =
         {options.map((item) => <MenuItem key={item} value={item}>{item}</MenuItem>)}
       </Select>
     </FormControl>
-  )
-}
+  );
+};
 
-export default SelectList
+export default SelectList;
